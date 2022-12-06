@@ -59,4 +59,8 @@ FROM `departments`;
 
 +------------------------------------------------------------------+
 QUERY_8
+
+SELECT COUNT(`id`) AS `check_telephone_number`
+FROM `teachers`
+WHERE `phone` IS NULL;
 +------------------------------------------------------------------+
