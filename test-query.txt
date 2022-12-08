@@ -20,6 +20,14 @@ QUERY_2
 SELECT `name`, `cfu`
 FROM `courses`
 WHERE `cfu`> 10;
+
+se voglio prendere un certo valore limite di records e ordinarli
+
+SELECT `name`, `cfu`
+FROM `courses`
+WHERE `cfu`> 10
+ORDER BY `cfu` ASC
+LIMIT 33;
 +------------------------------------------------------------------+
 
 
