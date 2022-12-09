@@ -5,7 +5,7 @@ SELECT `name`, `surname`, `date_of_birth`
 FROM `students`
 WHERE YEAR(`date_of_birth`) = 1990;
 
-oppure
+or
 
 SELECT `name`, `surname`, `date_of_birth`
 FROM `students`
@@ -21,7 +21,8 @@ SELECT `name`, `cfu`
 FROM `courses`
 WHERE `cfu`> 10;
 
-se voglio prendere un certo valore limite di records e ordinarli
+
+if i want to select a limit number of records and order it
 
 SELECT `name`, `cfu`
 FROM `courses`
@@ -35,9 +36,17 @@ LIMIT 33;
 +------------------------------------------------------------------+
 QUERY_3
 
+(if i want to check it daily)
 SELECT *
 FROM `students`
-WHERE YEAR(`date_of_birth`) < 1992;
+WHERE YEAR(`date_of_birth`) < 1992; 
+
+or
+
+SELECT `name`, `surname`, TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) AS `student_age`
+FROM `students`
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30
+ORDER BY `student_age` ASC;
 +------------------------------------------------------------------+
 
 
