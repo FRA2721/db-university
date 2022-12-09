@@ -58,6 +58,13 @@ SELECT *
 FROM `courses`
 WHERE `period` = "I semestre" 
 AND `year` = 1;
+
+or
+
+SELECT *
+FROM `courses`
+WHERE `courses`.`period` = "I semestre"
+AND `courses`.`year` = 1;
 +------------------------------------------------------------------+
 
 
