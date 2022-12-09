@@ -37,6 +37,10 @@ GROUP BY `teachers`.`office_address`;
 
 +------------------------------------------------------------------------------------------+
 QUERY_3
+
+SELECT `exam_student`.`exam_id`, AVG(`exam_student`.`vote`) AS `average_students_vote`
+FROM `exam_student`
+GROUP BY `exam_student`.`exam_id`;
 +------------------------------------------------------------------------------------------+
 
 
