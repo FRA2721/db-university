@@ -27,6 +27,10 @@ ORDER BY `year`;
 
 +------------------------------------------------------------------------------------------+
 QUERY_2
+
+SELECT COUNT(`id`) AS `teacher_amount`, `teachers`.`office_address`
+FROM `teachers`
+GROUP BY `teachers`.`office_address`;
 +------------------------------------------------------------------------------------------+
 
 
