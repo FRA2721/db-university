@@ -93,6 +93,12 @@ QUERY_6
 SELECT *
 FROM `degrees`
 WHERE `level` = "magistrale";
+
+or
+
+SELECT *
+FROM `degrees`
+WHERE `degrees`.`level` = "magistrale"
 +------------------------------------------------------------------+
 
 
