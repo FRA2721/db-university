@@ -24,6 +24,12 @@ superare ciascuno dei suoi esami
 /*** QUERY CALLS ***/
 +------------------------------------------------------------------------------------------+
 QUERY_1
+
+SELECT `students`.`name`, `students`.`surname`, `degrees`.`name` AS `degree`
+FROM `students`
+INNER JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+WHERE `degrees`.`name` = "Corso di Laurea in Economia";
 +------------------------------------------------------------------------------------------+
 
 
