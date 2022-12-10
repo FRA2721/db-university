@@ -36,6 +36,15 @@ WHERE `degrees`.`name` = "Corso di Laurea in Economia";
 
 +------------------------------------------------------------------------------------------+
 QUERY_2
+
+SELECT `degrees`.`name` AS `course
+` ,`degrees`.`level`, `departments`.name AS `department`
+FROM `degrees`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `departments`.`name` = "Dipartimento di Neuroscienze" 
+AND
+`degrees`.`level` = "magistrale";
 +------------------------------------------------------------------------------------------+
 
 
