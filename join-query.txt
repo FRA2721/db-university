@@ -130,4 +130,12 @@ ORDER BY `teachers`.`name` ASC, `teachers`.`surname` ASC;
 
 +------------------------------------------------------------------------------------------+
 QUERY_7
+
+SELECT `students`.`name` AS `student_name`, `students`.`surname` AS `student_surname`, `exams`.`id` AS `exam_id`, `exam_student`.`vote` AS `vote`, `exam_student`.`student_id` AS `attempts`
+FROM `exam_student`
+INNER JOIN `students`
+ON `exam_student`.`student_id` = `students`.`id`
+INNER JOIN `exams`
+ON `exam_student`.`exam_id` = `exams`.`id`
+ORDER BY `students`.`name` ASC, `students`.`surname` ASC;
 +------------------------------------------------------------------------------------------+
