@@ -94,6 +94,36 @@ ON `teachers`.`id` = `courses`.`id`;
 
 +------------------------------------------------------------------------------------------+
 QUERY_6
+
+SELECT `teachers`.`name` AS `teacher_name`, `teachers`.`surname` AS `teacher_surname`, `departments`.`name` AS `department`
+FROM `course_teacher`
+INNER JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+INNER JOIN `courses`
+ON `courses`.`id` = `course_teacher`.`course_id`
+INNER JOIN `degrees`
+ON `courses`.`degree_id` = `degrees`.`id`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `departments`.`name` = "Dipartimento di Matematica"
+GROUP BY `teachers`.`name`, `teachers`.`surname`
+ORDER BY `teachers`.`name` ASC, `teachers`.`surname` ASC;
+
+or
+
+SELECT `teachers`.`name` AS `teacher_name`, `teachers`.`surname` AS `teacher_surname`, `departments`.`name` AS `department`
+FROM `course_teacher`
+INNER JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+INNER JOIN `courses`
+ON `courses`.`id` = `course_teacher`.`course_id`
+INNER JOIN `degrees`
+ON `courses`.`degree_id` = `degrees`.`id`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `departments`.`name` = "Dipartimento di Matematica"
+GROUP BY `teachers`.`id`
+ORDER BY `teachers`.`name` ASC, `teachers`.`surname` ASC;
 +------------------------------------------------------------------------------------------+
 
 
