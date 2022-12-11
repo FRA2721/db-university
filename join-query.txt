@@ -131,11 +131,14 @@ ORDER BY `teachers`.`name` ASC, `teachers`.`surname` ASC;
 +------------------------------------------------------------------------------------------+
 QUERY_7
 
-SELECT `students`.`name` AS `student_name`, `students`.`surname` AS `student_surname`, `exams`.`id` AS `exam_id`, `exam_student`.`vote` AS `vote`, `exam_student`.`student_id` AS `attempts`
-FROM `exam_student`
-INNER JOIN `students`
+SELECT `students`.`id`, `students`.`name` AS `student_name`, `students`.`surname` AS `student_surname`, `courses`.`name` AS `course`, MAX(`exam_student`.`vote`) AS `final_vote`, COUNT(`exams`.`id`) as `tot_attempts`
+FROM `students`
+INNER JOIN `exam_student`
 ON `exam_student`.`student_id` = `students`.`id`
 INNER JOIN `exams`
-ON `exam_student`.`exam_id` = `exams`.`id`
-ORDER BY `students`.`name` ASC, `students`.`surname` ASC;
+ON `exams`.`id` = `exam_student`.`exam_id`
+INNER JOIN `courses`
+ON `courses`.`id` = `exams`.`course_id`
+GROUP BY `students`.`id`, `courses`.`id`
+ORDER BY `students`.`id`
 +------------------------------------------------------------------------------------------+
